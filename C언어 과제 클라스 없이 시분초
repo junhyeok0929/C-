@@ -1,0 +1,17 @@
+#include <iostream> 
+using namespace std;
+
+int main() {
+    int a, b, c,d;
+    cout << "시(hour) 입력:" ;
+    cin >> a;
+    cout << "분(minute)입력:";
+    cin >> b;
+    cout << "초(second)입력:";
+    cin >> c;
+    d = (a * 3600) + (b * 60) + c;
+    cout << "입력하신 시간은 총 " << d << "초 입니다." << endl;
+    cout << "기본 시간은 총 0초 입니다.";
+
+    }
+   
