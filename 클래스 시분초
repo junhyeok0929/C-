@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+
+class Convertsecond {
+	int hour;
+	int minute;
+	int second;
+public:
+	Convertsecond();
+	int getResult();
+	void setdata();
+};
+
+Convertsecond::Convertsecond() {
+	hour = 0, minute = 0, second = 0;
+}
+void Convertsecond::setdata(){
+	cout << "시(hour) 입력:";
+	cin >> hour;
+	cout << "분(minute)입력:";
+	cin >> minute;
+	cout << "초(second)입력:";
+	cin >> second;
+	
+}
+int Convertsecond::getResult() {
+	return (hour * 3600) + (minute* 60) + second;
+}
+
+int main() {
+
+	Convertsecond a;
+	a.setdata();
+	cout << "입력하신 시간은 총" << a.getResult() << "초 입니다." << endl;
+
+	Convertsecond b;
+	cout << "기본 시간은 총" << b.getResult() << "초 입니다." << endl;
+}
