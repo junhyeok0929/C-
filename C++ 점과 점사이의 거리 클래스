@@ -1,0 +1,29 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+class Line {
+	int sx, sy;
+	int ex, ey;
+public:
+
+	void setTwopoints() {
+		cout << "시작점 좌표 정수 두 개를 입력하세요." << endl;
+		cin >> sx >> sy;
+		cout << "끝점 좌표 정수 두 개를 입력하세요" << endl;
+		cin >> ex >> ey;
+		
+	}
+	double getLineLength() {
+			return sqrt(pow(ex - sx, 2) + pow(ey - sy, 2));
+	}
+
+};
+
+
+int main() {
+	
+	Line myline;
+	myline.setTwopoints();
+	cout << "myline의 길이는 " << myline.getLineLength() << " 입니다. ";
+	
+}
