@@ -1,0 +1,19 @@
+#include <iostream>
+#include <random>
+#include <windows.h>
+using namespace std;
+void move_cur(int x, int y) {
+    printf("\033[%d;%dH", y, x);
+}
+int main() {
+    random_device dv;
+    mt19937 gen(dv());
+    uniform_int_distribution<> cho(0,65);
+    uniform_int_distribution<> jun(0, 25);
+    for (int i = 0; i < 150; i++) {
+        move_cur(cho(gen),jun(gen)); cout << "*";
+        Sleep(50);
+    }
+    getchar(); 
+    return 0;
+}
