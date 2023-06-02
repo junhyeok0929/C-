@@ -1,0 +1,19 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+int main() {
+	vector<string> juice = { "아이스티","카페라떼","하이볼" };
+	juice.push_back("아아");
+	juice.push_back("몬스터");
+	
+	for (auto n : juice)	cout << n << " ";
+	cout << endl;
+	cout << juice.size() << endl;
+
+	juice.pop_back();
+
+	for (auto n : juice)	cout << n << " ";
+	cout << endl;
+	cout << juice.size() << endl;
+}
