@@ -1,0 +1,64 @@
+소스코드
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "hw.h"
+using namespace std;
+
+int main() {
+	ifstream fin("동물사전.txt");
+	if (!fin) { cerr << "사전 열기 실패"; return 0; }
+	string m[100][2];
+	int size = 0;
+	while (true) {
+		fin >> m[size][0] >> m[size][1];
+		if (fin.eof()) break;
+		size++;
+	}
+	fin.close();
+	print_2dim_array(m, size);
+	cout << "----------------------------" << endl;
+	cout << "총 동물 수" << size << endl;
+	cout << "----------------------------" << endl;
+	string a;
+	while (true) {
+		cout << "찾고 싶은 동물: ";
+		getline(cin, a);
+		if (a == "exit") break;
+
+		for (int i = 0; i < size; i++) {
+			if (m[i][0] == a) {
+				cout << "-->" << m[i][1] << endl; break;
+			}
+			else if (i == size-1) {
+				cout << "미등록 동물입니다." << endl;
+			}
+		}
+	}
+	cout << "이용해주셔서 감사합니다!" << endl;
+}
+
+
+헤더파일
+
+#pragma once
+#include <iostream>
+#include <map>
+using namespace std;
+
+template<typename K, typename V>
+void print_map(map<K, V> m) {
+	for (typename map<K, V>::iterator it = m.begin(); it != m.end(); ++it)
+		cout << it->first << " " << it->second << endl;
+}
+template <typename T>
+void print_2dim_array(T m[][2], int size) {
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < 2; j++) {
+			cout << m[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
