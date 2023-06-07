@@ -1,0 +1,22 @@
+#include <iostream>
+#include<vector>
+#include<random>
+#include<fstream>
+using namespace std;
+int main() {
+	vector<int> v;
+	random_device dv;
+	mt19937 gen(dv());
+	uniform_int_distribution<>dist(1, 10);
+	/* 여기한줄넣어보세요. 1~10 사이정수로범위제한*/
+	int a,b;
+	do {
+		a= dist(gen);	b = dist(gen);
+		v.push_back(a);	v.push_back(b);
+	} while (a != b);
+	ofstream fout("random.txt");    /* if(!fout)생략*/
+	fout<< v.size() / 2 << "개의정수쌍이생성되었습니다." << endl;
+	for (int i= 0; i< v.size(); i+=2) 
+		fout<< "(" << v[i] <<"," << v[i+1] << ")" << endl;
+	fout.close();
+}
