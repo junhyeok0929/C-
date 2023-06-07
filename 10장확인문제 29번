@@ -1,0 +1,39 @@
+#include <iostream>
+#include <fstream>
+#include <map>
+using namespace std;
+
+int main() {
+    map<string, string> countries;
+
+    string country, capital,answer;
+    while (1) {
+        cout << "나라 수도: ";
+        cin >> country;
+        if (country == "exit") {
+            break;
+        }
+        cin >> capital;
+        
+        if (countries.find(country) != countries.end()) {
+            cout << "이미 등록된 나라입니다. 수정할까요?(y/n): ";
+            cin >> answer;
+            if (answer == "y") {
+                countries[country] = capital;
+            }
+        }
+        else {
+            countries[country] = capital;
+        }
+ 
+    }
+    ofstream fout("capital.txt");
+    for (auto it = countries.begin(); it != countries.end(); it++)
+        fout << it->first << " " << it->second << endl;
+
+
+    cout << countries.size()<<" 나라의 수도 정보를 capital.txt에 저장하였습니다. 감사합니다.";
+    
+    
+    fout.close();
+}
