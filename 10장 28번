@@ -1,0 +1,18 @@
+#include<iostream>
+#include<string>
+#include<map>
+using namespace std;
+int main() {
+	map<string, string> m;
+
+	m.insert(make_pair("고양이", "cat"));
+	m.insert(make_pair("고양이", "nyang"));
+	m.insert({ "판다","panda" });
+	m.insert({ "판다","Po" });
+	m["사자"] = "lion";
+	m["사자"] = "saja";
+
+	cout << "저장된동물수= " << m.size() << endl;
+	for (auto it = m.begin(); it != m.end(); it++)
+		cout << it->first << " " << it->second << endl;
+}
